@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -9,7 +11,16 @@ body {
     color: black;
 }
 
-button {
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 300px;
+    margin-right: 500px;
+
+}
+
+#start_btn {
     background-color: darkblue;
     border-radius: 8px;
     color: white;
@@ -24,16 +35,13 @@ button {
     margin-left: 600px;
 }
 
-header {
+.timer {
     display: flex;
     justify-content: flex-end;
     margin-right: 100px;
 }
 
-footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 100px;
-    margin-right: 500px;
-
+.question,
+.answer {
+    margin-left: 500px;
 }
