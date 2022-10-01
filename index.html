@@ -12,20 +12,19 @@
 <body>
     <header>
         <h1 class="timer" style="text-align: center;"></h1>
+        <label> timer: </label>
         <h2 id="start-end"></h2>
         <p id="top"></p>
 
     </header>
     <main>
         <button id="start">Start Quiz</button>
-        <div class="question" ,>
+        <div class="question">
             <label for="question-number-text">question: </label>
-
         </div>
-        <section class="score">
-            <h3>Incorrect:0</h3>
-            <h3>Correct:0</h3>
-        </section>
+        <div class="answer">
+            <label for="answer-number-text">answers: </label>
+        </div>
         <div class="scoreboard">
             <h1>High score</h1>
             <form id="score-ranked" method="POST">
@@ -39,5 +38,9 @@
     </main>
     <script src="./assets/script.js"></script>
 </body>
+<footer class="score">
+    <h3 class="incorrect">Incorrect:</h3>
+    <h3 class="correct">Correct:</h3>
+</footer>
 
 </html>
