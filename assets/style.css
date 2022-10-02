@@ -11,6 +11,19 @@ body {
     color: black;
 }
 
+div {
+    margin-left: 550px;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+}
+
+section {
+    margin-left: 500px;
+}
 
 footer {
     display: flex;
@@ -31,17 +44,6 @@ footer {
     text-align: center;
     display: flex;
     justify-content: center;
-    margin-top: 250px;
+    margin-top: 150px;
     margin-left: 600px;
-}
-
-.timer {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 100px;
-}
-
-.question,
-.answer {
-    margin-left: 500px;
 }
