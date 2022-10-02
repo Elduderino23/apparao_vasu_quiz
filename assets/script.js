@@ -1,7 +1,7 @@
 
 
 
-var startBtn = document.querySelector("#start");
+var startBtn = document.querySelector("#start_btn");
 function startBtn() {
     let startBtn = alert("This is a timed multiple choice quiz that tests your knowledge in code. for every incorrect question, six seconds will be subtracted from the timer. Good luck.")
     if (startBtn = start) {
