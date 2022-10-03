@@ -47,14 +47,14 @@ function nextQuestion(event) {
     var currentQuestion = questions[i];
     i++;
     displayQuestion(currentQuestion);
-    var checkAnswer = clickedAnswer.getAttribute("value");
-    var checkAnswer = clickedAnswer.target.getAttribute("value");
+    var checkAnswer = event.target.value;
+    // var checkAnswer = clickedAnswer.target.getAttribute("value");
     var currentAnswer = currentQuestion[5];
 
     if (checkAnswer == currentAnswer) {
         correctAnswer++;
     } else {
-        wrong++;
+        // wrong++;
         timeLeft -= 6;
     }
 }
