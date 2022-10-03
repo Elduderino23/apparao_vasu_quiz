@@ -24,12 +24,12 @@ var question5 = ["Question 5: What is a CSS Box Model?", "(a) a box that wraps a
 var question6 = ["Question 6: What is a <br> tag?", "(a) tag inserts a basic rule", "(b) tag inserts a line break", "(c) tag inserts a breakpoint", "(d) tag inserts a line", "b"]
 var question7 = ["Question 7: What is an alert box?", "(a) a box often used if you want data got through to the user", "(b) a box often used if you want facts got through to the user", "(c) a box often used if you want info got through to the user", "(d) a box often used if you want things got through to the user", "c"]
 var question8 = ["Question 8: What is DOM?", "(a) Document Object Model", "(b) Document Object Method", "(c) Document Open Model", "(d) Document Object Minimum", "a"]
-var question9 = ["Question 9: What is concat()?", "(a) displays a dialog button that prompts the user for inspection", "(b) displays a dialog button that prompts the user for direction", "(c) displays a dialog button that prompts the user for input", "(d) displays a dialog button that prompts the user for output", "d"]
+var question9 = ["Question 9: What is concat()?", "(a) Concatenates two or more elements", "(b)  Concatenates two or more items", "(c) Concatenates two or more objects", "(d) Concatenates two or more arrays", "d"]
 var question10 = ["Question 10: What is JSON?", "(a) Javascript Opinion Notion", "(b) Javascript Option Notion", "(c) Javascript Source Object Notion", "(d) Javascript Object Notion", "d"]
 var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
 function startQuiz() {
     shotClock();
-    nextQuestion();
+    nextQuestion(event);
 }
 
 function displayQuestion(currentQuestion) {
@@ -38,24 +38,25 @@ function displayQuestion(currentQuestion) {
     secondOption.textContent = currentQuestion[2];
     thirdOption.textContent = currentQuestion[3];
     fourthOption.textContent = currentQuestion[4];
-    // badAnswer.textContent = string(incorrectAnswer);
-    // goodAnswer.textContent = correctAnswer;
+    badAnswer.textContent = incorrectAnswer;
+    goodAnswer.textContent = correctAnswer;
 
 }
-function nextQuestion() {
+function nextQuestion(event) {
+    console.log(event.target)
     var currentQuestion = questions[i];
     i++;
     displayQuestion(currentQuestion);
-    // var checkAnswer = clickedAnswer.getAttribute("value");
-    // var checkAnswer = clickedAnswer.target.getAttribute("value");
+    var checkAnswer = clickedAnswer.getAttribute("value");
+    var checkAnswer = clickedAnswer.target.getAttribute("value");
     var currentAnswer = currentQuestion[5];
 
-    // if (checkAnswer == currentAnswer) {
-    //     correctAnswer++;
-    // } else {
-    //     wrong++;
-    //     timeLeft -= 6;
-    // }
+    if (checkAnswer == currentAnswer) {
+        correctAnswer++;
+    } else {
+        wrong++;
+        timeLeft -= 6;
+    }
 }
 
 function shotClock() {
@@ -78,7 +79,7 @@ startBtn.addEventListener("click", startQuiz);
 // secondOption.addEventListener("click", nextQuestion(clickedAnswer));
 // thirdOption.addEventListener("click", nextQuestion(clickedAnswer));
 // fourthOption.addEventListener("click", nextQuestion(clickedAnswer));
-firstOption.addEventListener("click", nextQuestion());
-secondOption.addEventListener("click", nextQuestion());
-thirdOption.addEventListener("click", nextQuestion());
-fourthOption.addEventListener("click", nextQuestion());
+firstOption.addEventListener("click", nextQuestion);
+secondOption.addEventListener("click", nextQuestion);
+thirdOption.addEventListener("click", nextQuestion);
+fourthOption.addEventListener("click", nextQuestion);
