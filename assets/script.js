@@ -46,6 +46,13 @@ function nextQuestion(event) {
     console.log(event.target)
     var currentQuestion = questions[i];
     i++;
+    if (i >= question1.length) {
+
+        // then
+
+        // return
+
+    }
     displayQuestion(currentQuestion);
     var checkAnswer = event.target.value;
     // var checkAnswer = clickedAnswer.target.getAttribute("value");
@@ -72,7 +79,16 @@ function shotClock() {
         }
     }, 1000);
 }
+function endQuiz(event) {
+    console.log(event.target)
 
+    if (i > question1.length) {
+
+        then
+    }
+
+
+}
 
 startBtn.addEventListener("click", startQuiz);
 // firstOption.addEventListener("click", nextQuestion(clickedAnswer));
