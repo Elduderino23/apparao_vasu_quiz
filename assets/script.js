@@ -16,6 +16,7 @@ var firstOption = document.getElementById("option_1");
 var secondOption = document.getElementById("option_2");
 var thirdOption = document.getElementById("option_3");
 var fourthOption = document.getElementById("option_4");
+// var playAgain = document.getElementById("try-again")
 var question1 = ["Question 1: What is a prompt()?", "(a) displays a dialog button that prompts the user for inspection", "(b) displays a dialog button that prompts the user for direction", "(c) displays a dialog button that prompts the user for input", "(d) displays a dialog button that prompts the user for output", "c"]
 var question2 = ["Question 2: What is an Array?", "(a) a special variable which holds more than five values", "(b) a special variable which holds more than one value", "(c) a special variable which holds less than one value", "(d) a variable which holds more than one value", "b"]
 var question3 = ["Question 3: What are semantic HTML?", "(a) element that clearly describes its value in both browser and the developer", "(b) element that clearly describes its shape in both browser and the developer", "(c) element that clearly describes its code in both browser and the developer", "(d) element that clearly describes its meaning in both browser and the developer", "d"]
@@ -27,6 +28,7 @@ var question8 = ["Question 8: What is DOM?", "(a) Document Object Model", "(b) D
 var question9 = ["Question 9: What is concat()?", "(a) Concatenates two or more elements", "(b)  Concatenates two or more items", "(c) Concatenates two or more objects", "(d) Concatenates two or more arrays", "d"]
 var question10 = ["Question 10: What is JSON?", "(a) Javascript Opinion Notion", "(b) Javascript Option Notion", "(c) Javascript Source Object Notion", "(d) Javascript Object Notion", "d"]
 var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
+var currentAnswer = question1[5]
 function startQuiz() {
     shotClock();
     nextQuestion(event);
@@ -38,32 +40,27 @@ function displayQuestion(currentQuestion) {
     secondOption.textContent = currentQuestion[2];
     thirdOption.textContent = currentQuestion[3];
     fourthOption.textContent = currentQuestion[4];
-    badAnswer.textContent = incorrectAnswer;
-    goodAnswer.textContent = correctAnswer;
+    currentAnswer = currentQuestion[5];
 
 }
 function nextQuestion(event) {
-    console.log(event.target)
     var currentQuestion = questions[i];
-    i++;
-    if (i >= question1.length) {
-
-        // then
-
-        // return
-
-    }
-    displayQuestion(currentQuestion);
     var checkAnswer = event.target.value;
-    // var checkAnswer = clickedAnswer.target.getAttribute("value");
-    var currentAnswer = currentQuestion[5];
-
+    console.log(checkAnswer)
+    console.log(currentAnswer)
     if (checkAnswer == currentAnswer) {
         correctAnswer++;
     } else {
-        // wrong++;
+        incorrect++;
         timeLeft -= 6;
     }
+    if (i < questions.length) {
+        displayQuestion(currentQuestion);
+    }
+    badAnswer.textContent = incorrectAnswer;
+    goodAnswer.textContent = correctAnswer;
+    console.log(correctAnswer);
+    i++;
 }
 
 function shotClock() {
@@ -79,23 +76,21 @@ function shotClock() {
         }
     }, 1000);
 }
-function endQuiz(event) {
-    console.log(event.target)
+// function endQuiz(event) {
+//     console.log(event.target)
+// let endScreen = document.getElementById("scoreboard")
+// endScreen.removeAttribute()
+//     if (i > question1.length) {
 
-    if (i > question1.length) {
-
-        then
-    }
+//         then
+//     }
 
 
-}
+// }
 
 startBtn.addEventListener("click", startQuiz);
-// firstOption.addEventListener("click", nextQuestion(clickedAnswer));
-// secondOption.addEventListener("click", nextQuestion(clickedAnswer));
-// thirdOption.addEventListener("click", nextQuestion(clickedAnswer));
-// fourthOption.addEventListener("click", nextQuestion(clickedAnswer));
 firstOption.addEventListener("click", nextQuestion);
 secondOption.addEventListener("click", nextQuestion);
 thirdOption.addEventListener("click", nextQuestion);
 fourthOption.addEventListener("click", nextQuestion);
+// playAgain.addEventListener("click", startQuiz)
