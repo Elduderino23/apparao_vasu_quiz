@@ -17,28 +17,30 @@
 <body>
 
     <button id="start_btn">Start Quiz</button>
-    <div id="question">
+    <main>
+        <div id="question"></div>
+        <div id="correct-answer">
 
-    </div>
-    <div id="answer">
-        <button id="option_1"></button>
-        <button id="option_2"></button>
-        <button id="option_3"></button>
-        <button id="option_4"></button>
-    </div>
-    <section id="scoreboard">
-        <h2>High score</h2>
-        <form id="score-ranked" method="POST">
-            <label for="high-score-text">Gamer's name: </label>
-            <input type="text" placeholder="Initials" name="score-text" id="score-text" />
-        </form>
-        <p>Ranking: <span id="score-count">0</span></p>
-        <ul id="score-list">rank</ul>
-        <button id="try-again">try again</button>
+        </div>
+        <div id="answer">
+            <button id="option_1" value="a"></button>
+            <button id="option_2" value="b"></button>
+            <button id="option_3" value="c"></button>
+            <button id="option_4" value="d"></button>
+        </div>
+        <section id="scoreboard">
+            <h2>High score</h2>
+            <form id="score-ranked" method="POST">
+                <label for="high-score-text">Gamer's name: </label>
+                <input type="text" placeholder="Initials" name="score-text" id="score-text" />
+            </form>
+            <p>Ranking: <span id="score-count">0</span></p>
+            <ul id="score-list">rank</ul>
+            <button id="try-again">try again</button>
 
-    </section>
+        </section>
 
-    <script src="./assets/script.js"></script>
+        <script src="./assets/script.js"></script>
 </body>
 <footer>
     <h3 id="incorrect">Incorrect:</h3>
