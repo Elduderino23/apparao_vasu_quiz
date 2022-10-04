@@ -16,7 +16,7 @@ div {
 }
 
 header {
-    display: flex;
+    display: none;
     justify-content: flex-end;
     margin-right: 100px;
 }
@@ -31,6 +31,10 @@ footer {
     margin-bottom: 300px;
     margin-right: 500px;
 
+}
+
+footer h3 {
+    padding: 20px;
 }
 
 #start_btn {

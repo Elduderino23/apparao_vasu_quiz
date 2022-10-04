@@ -8,7 +8,7 @@
     <title>Timed Quiz</title>
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
-<header>
+<header id = "timer-container">
     <h1 id="timer" style="text-align: center;"></h1>
     <label> timer: </label>
 
@@ -33,18 +33,21 @@
             <form id="score-ranked" method="POST">
                 <label for="high-score-text">Gamer's name: </label>
                 <input type="text" placeholder="Initials" name="score-text" id="score-text" />
+            <button id="save">save</button>
             </form>
             <p>Ranking: <span id="score-count">0</span></p>
             <ul id="score-list">rank</ul>
             <button id="try-again">try again</button>
+            
+
 
         </section>
 
         <!-- <script src="./assets/script.js"></script> -->
 </body>
 <footer>
-    <h3 id="incorrect">Incorrect:</h3>
-    <h3 id="correct">Correct:</h3>
+    <h3>Incorrect: <span id="incorrect"></span></h3>
+    <h3>Correct: <span id="correct"></span></h3>
 </footer>
 <script src="./assets/script.js"></script>
 

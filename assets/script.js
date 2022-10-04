@@ -1,7 +1,7 @@
 var startBtn = document.querySelector("#start_btn");
 var countDown = document.getElementById("timer");
 var timeLeft = 60;
-var incorrectAnswer = 0;
+var incorrectAnswer = -1;
 var correctAnswer = 0;
 var i = 0;
 var timeInterval;
@@ -9,6 +9,7 @@ var timeQuestion = document.getElementById("question");
 var giveAnswer = document.getElementById("answer")
 var badAnswer = document.getElementById("incorrect")
 var goodAnswer = document.getElementById("correct")
+var scoreCard = document.getElementById("scoreboard")
 var scoreRank = document.getElementById("score-ranked");
 var scoreCount = document.getElementById("score-count");
 var scoreList = document.getElementById("score-list");
@@ -29,7 +30,9 @@ var question9 = ["Question 9: What is concat()?", "(a) Concatenates two or more 
 var question10 = ["Question 10: What is JSON?", "(a) Javascript Opinion Notion", "(b) Javascript Option Notion", "(c) Javascript Source Object Notion", "(d) Javascript Object Notion", "d"]
 var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
 var currentAnswer = question1[5]
+
 function startQuiz() {
+    document.getElementById("timer-container").style.display = "flex"
     shotClock();
     nextQuestion(event);
 }
@@ -43,6 +46,7 @@ function displayQuestion(currentQuestion) {
     currentAnswer = currentQuestion[5];
 
 }
+
 function nextQuestion(event) {
     var currentQuestion = questions[i];
     var checkAnswer = event.target.value;
@@ -51,11 +55,14 @@ function nextQuestion(event) {
     if (checkAnswer == currentAnswer) {
         correctAnswer++;
     } else {
-        incorrect++;
+        incorrectAnswer++;
         timeLeft -= 6;
     }
     if (i < questions.length) {
         displayQuestion(currentQuestion);
+    }
+    if (i === questions.length) {
+        giveAnswer.style.display = "none";
     }
     badAnswer.textContent = incorrectAnswer;
     goodAnswer.textContent = correctAnswer;
@@ -76,17 +83,24 @@ function shotClock() {
         }
     }, 1000);
 }
-// function endQuiz(event) {
-//     console.log(event.target)
-// let endScreen = document.getElementById("scoreboard")
-// endScreen.removeAttribute()
-//     if (i > question1.length) {
-
-//         then
-//     }
 
 
-// }
+
+scoreRank.addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log("save")
+
+
+    var scoreText = document.getElementById("score-text").value.trim();
+    console.log(scoreText)
+
+    if (scoreText === "") {
+        return;
+    }
+
+    // localStorage.setItem(,);
+
+})
 
 startBtn.addEventListener("click", startQuiz);
 firstOption.addEventListener("click", nextQuestion);
