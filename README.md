@@ -129,4 +129,4 @@ playAgain.addEventListener("click", startQuiz)
 ```
 ## Result
 The end product is a functioning timed multiple choice quiz with a score sheet.
-![](2022-10-03-17-50-30.png)
+![](2022-10-03-20-42-45.png)

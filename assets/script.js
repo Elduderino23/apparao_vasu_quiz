@@ -86,13 +86,13 @@ function nextQuestion(event) {
 function shotClock() {
     timeInterval = setInterval(function () {
         if (timeLeft > 0) {
-           
+
             timeLeft--;
             countDown.textContent = timeLeft;
         } else {
             clearInterval(timeInterval);
 
-           
+
         }
     }, 1000);
 }
@@ -116,7 +116,7 @@ scoreRank.addEventListener("submit", function (event) {
     document.getElementById("user-score").textContent = scoreText + " " + scoreShow;
 
 
-   
+
 })
 
 startBtn.addEventListener("click", startQuiz);
