@@ -1,9 +1,9 @@
 var startBtn = document.querySelector("#start_btn");
 var countDown = document.getElementById("timer");
-var timeLeft = 60;
-var incorrectAnswer = -1;
-var correctAnswer = 0;
-var i = 0;
+var timeLeft;
+var incorrectAnswer;
+var correctAnswer;
+var i;
 var timeInterval;
 var timeQuestion = document.getElementById("question");
 var giveAnswer = document.getElementById("answer")
@@ -17,7 +17,7 @@ var firstOption = document.getElementById("option_1");
 var secondOption = document.getElementById("option_2");
 var thirdOption = document.getElementById("option_3");
 var fourthOption = document.getElementById("option_4");
-// var playAgain = document.getElementById("try-again")
+var playAgain = document.getElementById("try-again")
 var question1 = ["Question 1: What is a prompt()?", "(a) displays a dialog button that prompts the user for inspection", "(b) displays a dialog button that prompts the user for direction", "(c) displays a dialog button that prompts the user for input", "(d) displays a dialog button that prompts the user for output", "c"]
 var question2 = ["Question 2: What is an Array?", "(a) a special variable which holds more than five values", "(b) a special variable which holds more than one value", "(c) a special variable which holds less than one value", "(d) a variable which holds more than one value", "b"]
 var question3 = ["Question 3: What are semantic HTML?", "(a) element that clearly describes its value in both browser and the developer", "(b) element that clearly describes its shape in both browser and the developer", "(c) element that clearly describes its code in both browser and the developer", "(d) element that clearly describes its meaning in both browser and the developer", "d"]
@@ -32,6 +32,12 @@ var questions = [question1, question2, question3, question4, question5, question
 var currentAnswer = question1[5]
 
 function startQuiz() {
+    giveAnswer.style.display = "block";
+    startBtn.style.display = "none";
+    timeLeft = 67;
+    incorrectAnswer = -1;
+    correctAnswer = 0;
+    i = 0;
     document.getElementById("timer-container").style.display = "flex"
     shotClock();
     nextQuestion(event);
@@ -56,7 +62,14 @@ function nextQuestion(event) {
         correctAnswer++;
     } else {
         incorrectAnswer++;
-        timeLeft -= 6;
+        if (timeLeft > 7) {
+            timeLeft -= 6;
+        } else {
+            timeLeft = 0;
+            countDown.textContent = timeLeft;
+            giveAnswer.style.display = "none";
+        }
+
     }
     if (i < questions.length) {
         displayQuestion(currentQuestion);
@@ -72,14 +85,14 @@ function nextQuestion(event) {
 
 function shotClock() {
     timeInterval = setInterval(function () {
-        if (timeLeft > 1) {
-            // timerEl.textContent = timeLeft + ' seconds remaining';
+        if (timeLeft > 0) {
+           
             timeLeft--;
             countDown.textContent = timeLeft;
         } else {
             clearInterval(timeInterval);
 
-            // displayMessage();
+           
         }
     }, 1000);
 }
@@ -98,8 +111,12 @@ scoreRank.addEventListener("submit", function (event) {
         return;
     }
 
-    // localStorage.setItem(,);
+    localStorage.setItem(scoreText, correctAnswer);
+    var scoreShow = localStorage.getItem(scoreText);
+    document.getElementById("user-score").textContent = scoreText + " " + scoreShow;
 
+
+   
 })
 
 startBtn.addEventListener("click", startQuiz);
@@ -107,4 +124,4 @@ firstOption.addEventListener("click", nextQuestion);
 secondOption.addEventListener("click", nextQuestion);
 thirdOption.addEventListener("click", nextQuestion);
 fourthOption.addEventListener("click", nextQuestion);
-// playAgain.addEventListener("click", startQuiz)
+playAgain.addEventListener("click", startQuiz)
